@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "relewise-candidate-assignment-client",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright install chromium && playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
