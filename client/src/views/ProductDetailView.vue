@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, RouterLink } from 'vue-router'
 import { trackProductView } from '@/services/trackingService'
 import { getUserId } from '@/utils/userId-management.util'
 
@@ -31,7 +31,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col items-center justify-center min-h-96 p-6">
-    <div v-if="productId" class="w-full max-w-md">
+    <div v-if="productId" class="w-full max-w-md flex flex-col gap-4">
       <h1 class="text-2xl font-bold mb-4 text-center">Product Detail Page</h1>
       <ul class="max-h-[65vh] overflow-y-auto space-y-3 py-2 list-none">
         <li
@@ -40,6 +40,9 @@ onMounted(async () => {
           <p class="font-semibold">Product ID: {{ productId }}</p>
         </li>
       </ul>
+      <div class="text-center mt-8">
+        <RouterLink to="/" class="hover:underline cursor-pointer hover:italic transition-all duration-200 ease-out text-slate-400">← Back to Home</RouterLink>
+      </div>
     </div>
   </div>
 </template>

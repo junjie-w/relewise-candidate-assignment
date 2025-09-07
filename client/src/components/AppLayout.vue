@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { getUserId } from '@/utils/userId-management.util'
 
+const userId = ref('')
+
 onMounted(() => {
   getUserId()
+  userId.value = getUserId()
 })
 </script>
 
 <template>
   <div class="w-screen h-screen flex flex-col items-center">
-    <div class="w-4/5 h-full flex flex-col py-4 text-slate-500">
-      <header class="flex justify-end items-center">
+    <div class="w-4/5 h-full flex flex-col py-8 text-slate-500">
+      <header class="flex justify-end items-center gap-4">
+        <span class="text-slate-400">User: {{ userId }}</span>
         <nav class="hover:underline cursor-pointer hover:italic transition-all duration-200 ease-out">
           <RouterLink to="/">Home</RouterLink>
         </nav>
