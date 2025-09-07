@@ -1,18 +1,18 @@
 import { test, describe, beforeEach } from 'node:test';
 import assert from 'node:assert';
-import Fastify from 'fastify';
+import Fastify, { FastifyInstance } from 'fastify';
 import { trackProductViewRoutes } from '../src/routes/trackProductView.js';
 
 describe('track-product-view Endpoint', () => {
   describe('should return 200 for valid requests', () => {
-    let fastify;
+    let fastify: FastifyInstance;
 
     beforeEach(async () => {
       fastify = Fastify({ logger: false });
       await fastify.register(trackProductViewRoutes);
     });
 
-    test('when user.id is a string', async () => {
+    test('when user.id is non-empty string', async () => {
       const response = await fastify.inject({
         method: 'POST',
         url: '/track-product-view',
@@ -84,7 +84,7 @@ describe('track-product-view Endpoint', () => {
   });
 
   describe('should return 400 for invalid requests', () => {
-    let fastify;
+    let fastify: FastifyInstance;
 
     beforeEach(async () => {
       fastify = Fastify({ logger: false });
