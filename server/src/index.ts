@@ -1,5 +1,6 @@
 
 import Fastify from 'fastify'
+import cors from '@fastify/cors'
 import { healthRoutes } from './routes/health.js';
 import { trackProductViewRoutes } from './routes/trackProductView.js';
 import { searchRoutes } from './routes/search.js';
@@ -10,6 +11,12 @@ export const fastify = Fastify({
 })
 
 fastify.setErrorHandler(errorHandler)
+
+// NOTE: client server runs on port 5173 by default
+const allowedOrigins = ['http://localhost:5173']
+await fastify.register(cors, {
+  origin: allowedOrigins
+})
 
 await fastify.register(healthRoutes);
 await fastify.register(trackProductViewRoutes);
