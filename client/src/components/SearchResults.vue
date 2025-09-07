@@ -30,7 +30,7 @@ const navigateToProduct = (result: Product) => {
       <li
         v-for="(result) in results"
         :key="result.id"
-        class="p-4 border border-slate-200 rounded-xl hover:bg-slate-50/80 hover:ring-1 hover:ring-slate-300 bg-slate-100/80 cursor-pointer transition-all duration-300 ease-in-out"
+        class="p-4 rounded-xl bg-slate-100/80 hover:bg-slate-50/80 hover:ring-2 hover:ring-slate-300 cursor-pointer transition-all duration-300 ease-in-out"
         @click="navigateToProduct(result)"
       >
         <div class="font-semibold">{{ result.name }}</div>
@@ -39,7 +39,7 @@ const navigateToProduct = (result: Product) => {
     </ul>
     
     <div v-else-if="searchTerm && searchTerm.length > 0 && !isLoading" class="text-center py-6">
-      <p class="text-sm">No results found for "{{ searchTerm }}"</p>
+      <p class="text-sm italic">No results found for "{{ searchTerm }}"</p>
     </div>
   </div>
 </template>
