@@ -3,7 +3,7 @@ import { FastifySchema } from 'fastify';
 export const searchSchema: FastifySchema = {
   body: {
     type: 'object',
-    required: ['search', 'user'],
+    required: ['search'],
     properties: {
       user: {
         oneOf: [

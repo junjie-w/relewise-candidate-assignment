@@ -2,6 +2,7 @@
 import Fastify from 'fastify'
 import { healthRoutes } from './routes/health.js';
 import { trackProductViewRoutes } from './routes/trackProductView.js';
+import { searchRoutes } from './routes/search.js';
 import { errorHandler } from './errors/handler.js';
 
 export const fastify = Fastify({
@@ -12,6 +13,7 @@ fastify.setErrorHandler(errorHandler)
 
 await fastify.register(healthRoutes);
 await fastify.register(trackProductViewRoutes);
+await fastify.register(searchRoutes);
 
 const start = async () => {
   try {
