@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { trackProductView } from '@/services/trackingService'
+import { getUserId } from '@/utils/userId-management.util'
 
 interface Props {
   id: string
@@ -10,9 +12,20 @@ const props = defineProps<Props>()
 const route = useRoute()
 const productId = ref('')
 
-onMounted(() => {
+onMounted(async () => {
   // NOTE: We could check if product ID exists in database, if not, display an error component
   productId.value = props.id || (route.params.id as string) || ''
+  
+  if (productId.value) {
+    try {
+      const userId = getUserId()
+      await trackProductView(userId, productId.value)
+      console.log(`Product view tracked: product ${productId.value} viewed by user: ${userId}`)
+    } catch (error) {
+      console.error('Error tracking product view:', error)
+    }
+  }
+  
 })
 </script>
 

@@ -17,3 +17,8 @@ export interface SearchRequestDTO {
 export interface SearchResponseDTO {
   products: Product[]
 }
+
+export interface TrackProductViewRequestDTO {
+  user: { id: string }
+  productId: string
+}
