@@ -11,3 +11,22 @@ export type TrackProductViewRequest = {
   user: User;
   productId: string;
 };
+
+export type Product = {
+  id: string;
+  name: string;
+};
+
+export type SearchInput = {
+  term: string;
+  languageCode: string;
+};
+
+export type SearchRequest = {
+  user: User;
+  search: SearchInput;
+};
+
+export type SearchResponse = {
+  products: Product[];
+};
