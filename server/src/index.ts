@@ -1,12 +1,17 @@
 
 import Fastify from 'fastify'
 import { healthRoutes } from './routes/health.js';
+import { trackProductViewRoutes } from './routes/trackProductView.js';
+import { errorHandler } from './errors/handler.js';
 
 export const fastify = Fastify({
   logger: true
 })
 
+fastify.setErrorHandler(errorHandler)
+
 await fastify.register(healthRoutes);
+await fastify.register(trackProductViewRoutes);
 
 const start = async () => {
   try {
