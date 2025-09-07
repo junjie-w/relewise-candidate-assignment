@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import type { Product } from '@/types'
 
 interface Props {
@@ -8,6 +9,15 @@ interface Props {
 }
 
 defineProps<Props>()
+const router = useRouter()
+
+const navigateToProduct = (result: Product) => {
+  const { id } = result
+  router.push({
+    name: 'product-detail',
+    params: { id },
+  })
+}
 </script>
 
 <template>
@@ -21,6 +31,7 @@ defineProps<Props>()
         v-for="(result) in results"
         :key="result.id"
         class="p-4 border border-slate-200 rounded-xl hover:bg-slate-50/80 hover:ring-1 hover:ring-slate-300 bg-slate-100/80 cursor-pointer transition-all duration-300 ease-in-out"
+        @click="navigateToProduct(result)"
       >
         <div class="font-semibold">{{ result.name }}</div>
         <div class="text-xs mt-1">ID: {{ result.id }}</div>
