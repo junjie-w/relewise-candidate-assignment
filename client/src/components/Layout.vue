@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { getUserId } from '@/utils/userUtils'
+import { getUserId } from '@/utils/userId-management.util'
 
 onMounted(() => {
   getUserId()
