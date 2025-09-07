@@ -15,6 +15,6 @@ export const errorHandler = (
   }
 
   // TODO: For now, I will just return 500 for demo purpose
-  // In a production app, other error types should be handled here (401, 403, 404...etc)
+  // In a production app, other error types should be handled here (401, 403, 404, 503...etc)
   return reply.status(500).send({ error: 'Internal server error' });
 };
