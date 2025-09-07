@@ -3,6 +3,6 @@
 
 <template>
   <div class="p-8">
-    <h1 class="text-center text-gray-600">Home page</h1>
+    <h1 class="text-center text-gray-600">Home Component</h1>
   </div>
 </template>
