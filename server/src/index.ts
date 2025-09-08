@@ -5,6 +5,7 @@ import { healthRoutes } from './routes/health.js';
 import { trackProductViewRoutes } from './routes/trackProductView.js';
 import { searchRoutes } from './routes/search.js';
 import { errorHandler } from './errors/handler.js';
+import { SERVER_CONFIG } from './constants.js';
 
 export const fastify = Fastify({
   logger: true
@@ -12,10 +13,9 @@ export const fastify = Fastify({
 
 fastify.setErrorHandler(errorHandler)
 
-// NOTE: client server runs on port 5173 by default
-const allowedOrigins = ['http://localhost:5173']
+// CORS configuration for production (in development, Vite proxy handles CORS)
 await fastify.register(cors, {
-  origin: allowedOrigins
+  origin: SERVER_CONFIG.CORS_ALLOWED_ORIGINS
 })
 
 await fastify.register(healthRoutes);
@@ -24,7 +24,7 @@ await fastify.register(searchRoutes);
 
 const start = async () => {
   try {
-    const address = await fastify.listen({ port: 3000 });
+    const address = await fastify.listen({ port: SERVER_CONFIG.PORT });
     fastify.log.info(`Server is running at ${address}`);
   } catch (err) {
     fastify.log.error(err);
