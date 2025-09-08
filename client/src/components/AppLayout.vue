@@ -15,7 +15,7 @@ onMounted(() => {
   <div class="w-screen h-screen flex flex-col items-center">
     <div class="w-4/5 h-full flex flex-col py-8 text-slate-500">
       <header class="flex justify-end items-center gap-4">
-        <span class="text-slate-400">User: {{ userId }}</span>
+        <span class="text-slate-400 text-sm underline">User: {{ userId }}</span>
         <nav class="hover:underline cursor-pointer hover:italic transition-all duration-200 ease-out">
           <RouterLink to="/">Home</RouterLink>
         </nav>

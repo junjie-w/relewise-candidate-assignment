@@ -30,7 +30,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-96 p-6">
+  <div class="flex flex-col items-center justify-center py-15">
     <div v-if="productId" class="w-full max-w-md flex flex-col gap-4">
       <h1 class="text-2xl font-bold mb-4 text-center">Product Detail Page</h1>
       <ul class="max-h-[65vh] overflow-y-auto space-y-3 py-2 list-none">
