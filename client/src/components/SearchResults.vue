@@ -26,7 +26,7 @@ const navigateToProduct = (result: Product) => {
       <p class="text-sm">Loading...</p>
     </div>
     
-    <ul v-if="results.length > 0" class="max-h-[65vh] overflow-y-auto space-y-3 py-2 list-none">
+    <ul v-if="results.length > 0" class="max-h-[55vh] overflow-y-auto space-y-3 py-2 list-none">
       <li
         v-for="(result) in results"
         :key="result.id"
