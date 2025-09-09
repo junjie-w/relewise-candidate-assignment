@@ -13,7 +13,7 @@ export const fastify = Fastify({
 
 fastify.setErrorHandler(errorHandler)
 
-// CORS configuration for production (in development, Vite proxy handles CORS)
+// CORS configuration for build environment (in dev environment, Vite proxy handles CORS)
 await fastify.register(cors, {
   origin: SERVER_CONFIG.CORS_ALLOWED_ORIGINS
 })
