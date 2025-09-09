@@ -7,10 +7,10 @@
 
 ## Run Server and Client
 
-### CORS Handling in Dev vs Production
+### CORS Handling in Dev vs Build
 
 - In dev environment, CORS is handled by [Vite proxy](https://vite.dev/config/server-options). 
-- In production environment, CORS is handled by [Fastify CORS](https://github.com/fastify/fastify-cors). 
+- In build environment, CORS is handled by [Fastify CORS](https://github.com/fastify/fastify-cors). 
 
 ### Development
 
@@ -31,16 +31,16 @@ Search something and navigate to product detail page, observe the request URLs i
 - `http://localhost:5173/api/track-product-view`
 - **_→ forwarded by Vite proxy_** in **[client/vite.config.ts](client/vite.config.ts)**
 
-### Production
+### Build
 
 ```bash
-# Start backend prod server on http://localhost:3000
+# Start backend build server on http://localhost:3000
 cd server
 npm install
 npm run build
 npm run start
     
-# Start frontend prod server on http://localhost:4173
+# Start frontend build server on http://localhost:4173
 cd ../client
 npm install
 npm run build
@@ -52,7 +52,7 @@ Search something and navigate to product detail page, observe the request URLs i
 - `http://localhost:3000/track-product-view`
 - **_→ handled by Fastify CORS_** in **[server/src/index.ts](server/src/index.ts)**
 
-> For production, since I only whitelisted `http://localhost:4173` for CORS, please use port `4173` for the frontend production build. Otherwise, you can of course whitelist **`*`** in [server/src/constants.ts](server/src/constants.ts) and then use any other ports.
+> For the frontend build server, since I only whitelisted `http://localhost:4173` for CORS, please use port `4173`. Otherwise, you can of course whitelist **`*`** in [server/src/constants.ts](server/src/constants.ts) and then use any other ports.
 
 ## Requirements Checklist
 
@@ -310,8 +310,8 @@ Search something and navigate to product detail page, observe the request URLs i
 
 - SEO considerations
   > Do we need SEO for PDP page? SPA with Vue might impact SEO (SSR vs CSR)
-- No API proxy routes in production
-  > Frontend makes direct API calls, exposing backend endpoints and requiring CORS configuration
+- No API proxy routes in build
+  > Frontend makes direct API calls to the backend, exposing backend endpoints and requiring CORS
 - No productId validation for PDP 
 - No error boundary component 
 

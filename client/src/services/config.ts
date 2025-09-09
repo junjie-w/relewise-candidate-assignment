@@ -8,8 +8,8 @@ export const API_ENDPOINTS = {
 export const API_CONFIG = {
   API_BASE_URL: import.meta.env.DEV ? '' : `http://localhost:${SERVER_PORT}`,
   ENDPOINTS: {
-    // In development, CORS is handled by Vite proxy
-    // In production, CORS is handled by Fastify CORS
+    // In dev environment, CORS is handled by Vite proxy
+    // In build environment, CORS is handled by Fastify CORS
     SEARCH: import.meta.env.DEV ? `/api${API_ENDPOINTS.SEARCH}` : API_ENDPOINTS.SEARCH,
     TRACK_PRODUCT_VIEW: import.meta.env.DEV ? `/api${API_ENDPOINTS.TRACK_PRODUCT_VIEW}` : API_ENDPOINTS.TRACK_PRODUCT_VIEW
   },
