@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- **Node** >= 20.19.0 
+- **Node** `^20.19.0 || >=22.12.0`
 > (Required by [Vue](https://vuejs.org/guide/quick-start.html) and [Vite](https://vite.dev/guide))
 
 ## Run Server and Client
