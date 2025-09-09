@@ -21,7 +21,7 @@ npm install
 npm run dev
     
 # Start frontend dev server on http://localhost:5173
-cd ../client
+cd client
 npm install
 npm run dev
 ```
@@ -41,7 +41,7 @@ npm run build
 npm run start
     
 # Start frontend build server on http://localhost:4173
-cd ../client
+cd client
 npm install
 npm run build
 npm run preview
